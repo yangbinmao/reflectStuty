@@ -41,23 +41,12 @@ public class BaseDaoDBAdapter<E, K extends Serializable> extends BaseDaoAdapter<
         // pt.getActualTypeArguments();等于获取里面所有参赛
         // tps[0]就可以获取对应的对象。
 
-        //TODO 逻辑解析： 还是有问题。解析不清楚
-        //因为不知道传入进来的是什么类型的实体类，
-        //，同时在E的位置写上了的Myclass实体类
-        //只要在BaseDao<MyClass,Interger>内传入了MyClass实体类。
-        //到时候在MyClassDaoImpl内，因为MyClassDaoImpl继承了BaseDaoDBAdapter<MyClass,Integer>（就是当前类），并且实现了MyClassDao接口
-        //然后BaseDaoDBAdapter类的父类BaseDaoAdapter类也实现了BaseDao
-        //所以就可以在BaseDaoDBAdapter的父类上获取E的值
+        //TODO 逻辑解析：
+        //MyClassDao 的父类是 BaseDao，并且定义了BaseDao的E是MyClass
+        //MyClassDaoImpl 的父类是 BaseDaoDBAdapter（本类）
+        //因为MyClassDaoImpl实现了MyClassDao，
+        // 所以BaseDao也就是BaseDaoDBAdapter的父类
+        //所以BaseDaoDBAdapter就可以获取在BaseDao定义的E的属性
 
-
-
-        //在MyClassDao接口内继承了BaseDao<E,K>接口,所以BaseDao接口是MyClassDao接口的父类
-        //MyClassDaoImpl类实现了MyClassDao接口，所以BaseDao也就成了MyClassDaoImpl类的父类
-        //BaseDao接口> MyClassDao接口= MyClassDaoImpl类的父类
-
-        //BaseDaoDBAdapter类（当前类）是MyClassDaoImpl类的父类
-        //BaseDaoAdapter类是BaseDaoDBAdapter类（当前类）的父类
-        //BaseDaoAdapter类实现了BaseDao接口
-        //BaseDaoDBAdapter类（当前类）= BaseDao接口 > MyClassDaoImpl类
     }
 }
