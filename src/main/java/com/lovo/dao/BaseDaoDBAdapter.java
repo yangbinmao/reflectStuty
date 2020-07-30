@@ -52,7 +52,7 @@ public class BaseDaoDBAdapter<E, K extends Serializable> extends BaseDaoAdapter<
         //MyClassDao 的父类是 BaseDao，并且定义了BaseDao的E是MyClass
         //MyClassDaoImpl 的父类是 BaseDaoDBAdapter（本类）
         //因为MyClassDaoImpl实现了MyClassDao，
-        // 所以BaseDao也就是BaseDaoDBAdapter的父类
+        //所以BaseDao也就是BaseDaoDBAdapter的父类
         //所以BaseDaoDBAdapter就可以获取在BaseDao定义的E的属性
 
     }
